@@ -129,10 +129,7 @@
       }
     ]
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+  "logo": "/images/FAT_Karting_League-Vertical_Logo-Master-RGB-White.png",
   "navbar": {
     "links": [
       {
