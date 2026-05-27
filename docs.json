@@ -36,16 +36,10 @@
   },
   "logo": "/images/FAT_Karting_League-Vertical_Logo-Master-RGB-White.png",
   "navbar": {
-    "links": [
-      {
-        "label": "Submit IT ticket",
-        "href": "mailto:advanced-technology-c0a6ecefe97b@intake.linear.app"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Employee portal",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Submit IT ticket",
+      "href": "mailto:advanced-technology-c0a6ecefe97b@intake.linear.app"
     }
   },
   "fonts": {
