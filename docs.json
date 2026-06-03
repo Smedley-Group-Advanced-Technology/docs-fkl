@@ -24,18 +24,9 @@
 	"display": "toc"
   },
   "navigation": {
-	  "global" : {
-		  "anchors": [
-			{
-				"anchor": "Home",
-				"icon": "home"
-			}
-		]	
-	  },
 	  "tabs": [
 		{
 		  "tab": "SOPs",
-		  "icon": "clipboard-list",
 		  "groups": [
 			{
 			  "group": "Race Prep",
@@ -64,7 +55,6 @@
 		},
 		{
 		  "tab": "Guides",
-		  "icon": "map",
 		  "groups": [
 			{
 			  "group": "SimTelLab",
@@ -73,6 +63,18 @@
 			  ]
 			}
 		  ]
+		},
+		{
+			"tab": "Changelog",
+			"groups": [
+			{
+				"group": "Changelog",
+				"icon": "calendar",
+				"pages": [
+					"changelog/product-updates"
+					]
+			}
+			]
 		}
 	  ]
 	},
