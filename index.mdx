@@ -1,6 +1,6 @@
 ---
 title: "Home"
-description: "Onboarding guides, HR policies, IT help, and department runbooks for the whole company."
+description: "SOPs, guides, and reference sheets for FAT Racing."
 mode: custom
 ---
 
@@ -16,26 +16,7 @@ mode: custom
     </div>
   </div>
 
-  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-    <a
-      href="/onboarding/first-day"
-      className="group flex flex-col outline-none"
-    >
-      <div
-        className="kb-feature-card relative flex h-[170px] items-center justify-center overflow-hidden rounded-2xl ring-1 ring-gray-100 transition group-hover:ring-gray-200 dark:ring-white/[0.08] dark:group-hover:ring-white/15 saturate-50 group-hover:saturate-100"
-      >
-        <div className="relative flex items-center justify-center">
-          <Icon icon="calendar-1" size={36} className="!bg-white" />
-        </div>
-      </div>
-      <div className="flex flex-col gap-1 pt-4">
-        <span className="text-base font-medium text-gray-900 dark:text-gray-50">Your first day</span>
-        <span className="text-sm leading-5 text-gray-600 dark:text-gray-400">
-          Your first day is all about getting oriented and connecting with key team members.
-        </span>
-      </div>
-    </a>
-
+  <div className="grid grid-cols-1 gap-5 sm:grid-cols-1">
     <a
       href="/onboarding/tools/account-access"
       className="group flex flex-col outline-none"
@@ -50,7 +31,7 @@ mode: custom
       <div className="flex flex-col gap-1 pt-4">
         <span className="text-base font-medium text-gray-900 dark:text-gray-50">Account access</span>
         <span className="text-sm leading-5 text-gray-600 dark:text-gray-400">
-          Which accounts you&apos;ll need, how to claim them, and what to do if anything is missing.
+          Which accounts you'll need, how to claim them, and what to do if anything is missing.
         </span>
       </div>
     </a>
@@ -60,20 +41,20 @@ mode: custom
     <h2 className="text-lg font-medium tracking-tight text-gray-900 dark:text-gray-50">Resources</h2>
 
     <Columns cols={2}>
-      <Card title="HR & People" icon="users" iconType="light" href="/hr-people">
-        Benefits, time off, performance reviews, and compensation.
+      <Card title="SOPs" icon="users" iconType="light" href="/sops">
+        Standard operating procedure documents.
       </Card>
-      <Card title="IT & Security" icon="shield-check" iconType="light" href="/it-security">
-        Access requests, device policy, and security training.
+      <Card title="Engineering & Data" icon="shield-check" iconType="light" href="/">
+        Engineering details and processes.
       </Card>
     </Columns>
 
     <Columns cols={2}>
-      <Card title="Policies" icon="scroll" iconType="light" href="/policies">
-        Code of conduct, expense reimbursement, travel, and remote work.
+      <Card title="Guides" icon="scroll" iconType="light" href="/guides">
+        Guides on vehicles, tyres, setups etc.
       </Card>
       <Card title="Engineering" icon="code-xml" iconType="light" href="/engineering">
-        Dev setup, deployment, incident response, and architecture.
+        Engineering topics.
       </Card>
     </Columns>
   </div>

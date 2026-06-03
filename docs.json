@@ -4,9 +4,9 @@
   "name": "FAT Racing Playbook",
   "description": "Extensive knowledge base for FAT Racing programme",
   "colors": {
-    "primary": "#166E3F",
-    "light": "#26BD6C",
-    "dark": "#166E3F"
+    "primary": "#00FF40",
+    "light": "#66FF8C",
+    "dark": "#00B32D"
   },
   "favicon": "/favicon.ico",
   "icons": {
@@ -25,20 +25,17 @@
 		  "icon": "clipboard-list",
 		  "groups": [
 			{
-			  "group": "Mechanical",
+			  "group": "Race Weekend Preparation"
 			  "icon": "wrench",
 			  "pages": [
-				"sops/mechanical/brake-pad-indicator",
-				"sops/mechanical/brake-pad-replacement",
-				"sops/mechanical/brake-system-bleed"
+				"sops/rw-prep/preparing-for-rw"
 			  ]
 			},
 			{
 			  "group": "Engineering & Data",
 			  "icon": "chart-line",
 			  "pages": [
-				"sops/engineering/charging-battery-health-analysis",
-				"sops/engineering/s3-data-sync"
+				"engineering/setup-sweeps"
 			  ]
 			},
 			{
@@ -48,52 +45,6 @@
 				"sops/event/pre-event-checklist",
 				"sops/event/in-event-checklist",
 				"sops/event/post-event-checklist"
-			  ]
-			},
-			{
-			  "group": "Fleet Management",
-			  "icon": "gauge",
-			  "pages": [
-				"sops/fleet/kart-setup",
-				"sops/fleet/fleet-inspection"
-			  ]
-			}
-		  ]
-		},
-		{
-		  "tab": "Reference",
-		  "icon": "book-open",
-		  "groups": [
-			{
-			  "group": "Kart Classes",
-			  "icon": "car",
-			  "pages": [
-				"reference/kart-classes/bambino",
-				"reference/kart-classes/cadet",
-				"reference/kart-classes/junior"
-			  ]
-			},
-			{
-			  "group": "Components",
-			  "icon": "puzzle-piece",
-			  "pages": [
-				"reference/components/brake-calipers",
-				"reference/components/batteries"
-			  ]
-			},
-			{
-			  "group": "Tools",
-			  "icon": "toolbox",
-			  "pages": [
-				"reference/tools/air-gap-tool",
-				"reference/tools/brake-wear-indicator"
-			  ]
-			},
-			{
-			  "group": "Torque Specs",
-			  "icon": "bolt",
-			  "pages": [
-				"reference/torque-specs"
 			  ]
 			}
 		  ]
@@ -106,17 +57,7 @@
 			  "group": "SimTelLab",
 			  "icon": "desktop",
 			  "pages": [
-				"guides/simtellab/getting-started",
-				"guides/simtellab/session-summaries"
-			  ]
-			},
-			{
-			  "group": "For New Mechanics",
-			  "icon": "user-plus",
-			  "pages": [
-				"guides/onboarding/overview",
-				"guides/onboarding/tools-and-equipment",
-				"guides/onboarding/key-sops"
+				"guides/simtellab/installing-simtellab"
 			  ]
 			}
 		  ]
