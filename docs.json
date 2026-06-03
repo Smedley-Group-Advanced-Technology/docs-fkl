@@ -16,7 +16,7 @@
     "timestamp": true
   },
   "contextual": {
-    "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
+    "options": ["copy", "assistant"]
   },
   "navigation": {
 	  "tabs": [
@@ -40,7 +40,7 @@
 			},
 			{
 			  "group": "Event Operations",
-			  "icon": "flag-checkered",
+			  "icon": "clipboard-check",
 			  "pages": [
 				"sops/event/pre-event-checklist",
 				"sops/event/in-event-checklist",
@@ -55,7 +55,6 @@
 		  "groups": [
 			{
 			  "group": "SimTelLab",
-			  "icon": "desktop",
 			  "pages": [
 				"guides/simtellab/installing-simtellab"
 			  ]
