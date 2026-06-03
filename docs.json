@@ -20,16 +20,25 @@
     "timestamp": true
   },
   "contextual": {
-    "options": ["copy", "assistant"]
+    "options": ["copy", "assistant"],
+	"display": "toc"
   },
   "navigation": {
+	  "global" : {
+		  "anchors": [
+			{
+				"anchor": "Home"
+				"icon": "home"
+			}
+		]	
+	  },
 	  "tabs": [
 		{
 		  "tab": "SOPs",
 		  "icon": "clipboard-list",
 		  "groups": [
 			{
-			  "group": "Race Weekend Preparation",
+			  "group": "Race Prep",
 			  "icon": "wrench",
 			  "pages": [
 				"sops/rw-prep/preparing-for-rw"
@@ -44,7 +53,6 @@
 			},
 			{
 			  "group": "Event Operations",
-			  "directory": "accordion",
 			  "icon": "clipboard-check",
 			  "pages": [
 				"sops/event/pre-event-checklist",
