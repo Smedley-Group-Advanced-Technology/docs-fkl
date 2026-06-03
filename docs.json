@@ -25,7 +25,7 @@
 		  "icon": "clipboard-list",
 		  "groups": [
 			{
-			  "group": "Race Weekend Preparation"
+			  "group": "Race Weekend Preparation",
 			  "icon": "wrench",
 			  "pages": [
 				"sops/rw-prep/preparing-for-rw"
