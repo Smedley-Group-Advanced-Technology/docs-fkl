@@ -1,7 +1,6 @@
 ---
-title: "SOP: Synchronise Telemetry Data from AWS S3"
+title: "Sync From S3"
 description: "How to use AWS CLI to synchronise telemetry data from the S3 bucket to the local file system for viewing in SimTelLab."
-icon: "cloud-arrow-down"
 ---
 
 ## Overview
@@ -74,11 +73,11 @@ This SOP describes how to pull telemetry data from the AWS S3 bucket down to you
     Navigate to your local file system where you are storing SimTelLab data.
 
     <Note>
-      If this is your first time setting this up, download the pre-built folder structure and extract it into `C:/Demo`.
+      If this is your first time setting this up, download the pre-built folder structure and extract it into `C:/Databases`.
     </Note>
   </Step>
   <Step title="Navigate to the database folder">
-    Navigate to `C:/Demo/SimTelLabDatabaseFKL`.
+    Navigate to `C:/Databases/SimTelLabDatabaseFKL`.
   </Step>
   <Step title="Create the sync file">
     Create a new text file and rename it `sync.bat`. Ignore any warnings about the file extension making the file unusable.
@@ -87,7 +86,7 @@ This SOP describes how to pull telemetry data from the AWS S3 bucket down to you
     Open `sync.bat` in Notepad++ and enter the following, replacing `<PROFILE>` with the profile name you set in the `.aws` files:
 
     ```bat
-    aws s3 sync s3://telemetry-data-sg-prod/STL-database/2025 "C:\DatabasesSimTelLabDatabaseFKL\Data\2025" --profile <PROFILE>
+    aws s3 sync s3://telemetry-data-sg-prod/STL-database/2025 "C:\Databases\SimTelLabDatabaseFKL\Data\2025" --profile <PROFILE>
     ```
 
     Save and close the `sync` file.

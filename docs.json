@@ -81,15 +81,14 @@
         "tab": "Operator Dashboard",
         "groups": [
           {
-            "group": "CEL",
+            "group": "Customer Experience",
             "icon": "person-standing",
             "pages": [
               "od/cel/index",
               "od/cel/operational-dashboard",
               "od/cel/alpha-timing",
               "od/cel/driver-sign-on",
-              "od/cel/driver-training-program",
-              "od/cel/vivenu"
+              "od/cel/driver-training-program"
             ]
           },
           {
@@ -113,10 +112,22 @@
 			  {
 				  "group": "Battery Health Analysis",
 				  "pages": [
-					"sops/od/rs/battery-health-index",
-					"sops/od/rs/battery-health-analysis"
+					"od/rs/battery-health-index",
+					"od/rs/battery-health-analysis"
 				  ]
 				}
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Vivenu",
+        "groups": [
+          {
+            "group": "Vivenu",
+            "icon": "ticket",
+            "pages": [
+              "od/cel/vivenu"
             ]
           }
         ]
