@@ -30,11 +30,10 @@
     "tabs": [
       {
         "tab": "Introduction",
-        "icon": "house",
         "groups": [
           {
             "group": "Welcome",
-            "icon": "hand-wave",
+            "icon": "hand",
             "pages": [
               "introduction/welcome",
               "introduction/the-team",
