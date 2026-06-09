@@ -1,8 +1,8 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "luma",
-  "name": "FAT Racing Playbook",
-  "description": "Extensive knowledge base for FAT Racing programme",
+  "name": "FAT Karting League Playbook",
+  "description": "The internal knowledge base for the FAT Karting League",
   "colors": {
     "primary": "#00FF40",
     "light": "#66FF8C",
@@ -26,8 +26,33 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Operator Dashboard",
+        "tab": "Introduction",
+        "icon": "house",
         "groups": [
+          {
+            "group": "Welcome",
+            "icon": "hand-wave",
+            "pages": [
+              "introduction/welcome",
+              "introduction/the-team"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Operations",
+        "icon": "flag-checkered",
+        "groups": [
+          {
+            "group": "Roles & Responsibilities",
+            "icon": "users",
+            "pages": [
+              "operations/roles/index",
+              "operations/roles/charging-technician",
+              "operations/roles/remote-support",
+              "operations/roles/customer-experience-lead"
+            ]
+          },
           {
             "group": "Customer Experience",
             "icon": "person-standing",
@@ -48,40 +73,57 @@
               "od/ct/start",
               "od/ct/data-upload",
               "od/ct/stop-and-backup",
-			  "od/ct/monitor-ui"
+              "od/ct/monitor-ui"
             ]
           },
-		  {
+          {
             "group": "Remote Support",
             "icon": "headset",
             "pages": [
               "od/rs/index",
               "od/rs/sync-s3",
-			  {
-				  "group": "Battery Health Analysis",
-				  "pages": [
-					"od/rs/battery-health-index",
-					"od/rs/battery-health-analysis"
-				  ]
-				}
+              {
+                "group": "Battery Health Analysis",
+                "pages": [
+                  "od/rs/battery-health/index",
+                  "od/rs/battery-health/battery-health-analysis"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Vivenu",
+        "tab": "Software & Technology",
+        "icon": "monitor",
         "groups": [
           {
-            "group": "Vivenu",
-            "icon": "ticket",
+            "group": "Internal Tools",
+            "icon": "wrench",
             "pages": [
+              "software/internal/index"
+            ]
+          },
+          {
+            "group": "Third-Party Tools",
+            "icon": "plug",
+            "pages": [
+              "software/third-party/index",
               "od/cel/vivenu"
+            ]
+          },
+          {
+            "group": "Developer Reference",
+            "icon": "code",
+            "pages": [
+              "software/developer/index"
             ]
           }
         ]
       },
       {
         "tab": "Changelog",
+        "icon": "calendar",
         "groups": [
           {
             "group": "Changelog",
