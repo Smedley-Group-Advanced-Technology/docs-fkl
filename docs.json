@@ -107,8 +107,10 @@
               {
                 "group": "Vivenu",
                 "pages": [
-                  "od/cel/vivenu",
-                  "software/third-party/vivenu-developer-tools"
+                  "software/third-party/vivenu-updating-numbers",
+                  "software/third-party/vivenu-setting-up-a-new-hub",
+				  "software/third-party/vivenu-developer-tools",
+				  "software/third-party/vivenu-creating-new-event"
                 ]
               }
             ]
