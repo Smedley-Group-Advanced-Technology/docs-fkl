@@ -1,0 +1,89 @@
+---
+title: "Resolving Warnings on the Timing Page"
+sidebarTitle: "Fix Timing Warnings"
+description: "How to view, manage, and resolve warnings and errors per session or per competitor on the Operator Dashboard."
+---
+
+## Overview
+
+This SOP covers how to view and manage warnings and errors on the Timing page of the Operator Dashboard. Using this feature allows for easier tracking and resolution of issues attached to competitors, promoting better data quality.
+
+**When:** Post-event, after timing data has been uploaded.
+
+---
+
+## Prerequisites
+
+- OD access
+
+---
+
+## Understanding Warning Icons
+
+Warnings and errors appear as icons next to each session on the Timing page:
+
+| Icon | Meaning |
+|--|--|
+| 🔴 Red triangle | At least one error present |
+| 🟡 Yellow triangle | No errors, but at least one unresolved warning |
+| 🟢 Green circle | Only resolved warnings |
+
+![Sessions view showing warning icons](/images/od/tk/timing-warnings-sessions.png)
+
+---
+
+## Viewing Warnings per Session
+
+Clicking a session icon opens a modal showing comments grouped into three categories:
+
+- **Unresolved Warnings** — issues not yet actioned
+- **Resolved Warnings** — issues that have been marked as resolved with a reason
+- **Errors** — issues that cannot be resolved in the OD
+
+![Warning modal showing all three categories](/images/od/tk/timing-warnings-modal.png)
+
+<Warning>
+  Errors cannot be resolved in the OD. They must be resolved at source from the timing system.
+</Warning>
+
+---
+
+## Managing Warnings for a Session
+
+<Steps>
+  <Step title="Open the session modal">
+    Click the warning icon next to the session you wish to manage. A dialog will open showing all unresolved warnings, resolved warnings, and errors for that session.
+
+    ![Session modal — unresolved warnings only](/images/od/tk/timing-warnings-session-modal.png)
+  </Step>
+  <Step title="Resolve a warning">
+    Tick the checkbox next to the warning you wish to resolve and enter a resolution reason in the **Resolution Reason** field.
+
+    Edited comments will be tinted yellow. Sessions with unsaved edits will show an **\*** symbol next to the icon.
+  </Step>
+  <Step title="Save changes">
+    Click **Save changes** to save to the database.
+
+    <Note>
+      Closing the modal with X or Esc preserves your edits until the event is reloaded, but changes are not saved to the database until you click **Save changes**. Comments are only moved to the appropriate category after saving.
+    </Note>
+  </Step>
+</Steps>
+
+---
+
+## Managing Warnings per Competitor
+
+<Steps>
+  <Step title="Open the session">
+    Click a session to expand it and view the timing data. Each competitor will now show their own warning icon.
+
+    ![Competitor view with individual warning icons](/images/od/tk/timing-warnings-competitor-view.png)
+  </Step>
+  <Step title="Open the competitor modal">
+    Click the icon next to a specific competitor to open an identical modal, filtered to show only that competitor's comments.
+  </Step>
+  <Step title="Resolve and save">
+    Tick the checkbox, enter a resolution reason, and click **Save changes** as with the session-level workflow above.
+  </Step>
+</Steps>

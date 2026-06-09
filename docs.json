@@ -84,7 +84,7 @@
             "pages": [
               "od/rs/index",
               "od/rs/sync-s3",
-			  "od/rs/battery-health-analysis"
+              "od/rs/battery-health-analysis"
             ]
           }
         ]
@@ -104,7 +104,13 @@
             "icon": "plug",
             "pages": [
               "software/third-party/index",
-              "od/cel/vivenu"
+              {
+                "group": "Vivenu",
+                "pages": [
+                  "od/cel/vivenu",
+                  "software/third-party/vivenu-developer-tools"
+                ]
+              }
             ]
           },
           {
@@ -149,4 +155,3 @@
     "decoration": "gradient"
   }
 }
-
