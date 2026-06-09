@@ -86,8 +86,6 @@
               "od/rs/index",
               "od/rs/sync-s3",
 			  "od/rs/battery-health-analysis"
-                ]
-              }
             ]
           }
         ]
