@@ -1,0 +1,115 @@
+---
+title: "SOP: Synchronise Telemetry Data from AWS S3"
+description: "How to use AWS CLI to synchronise telemetry data from the S3 bucket to the local file system for viewing in SimTelLab."
+icon: "cloud-arrow-down"
+---
+
+## Overview
+
+This SOP describes how to pull telemetry data from the AWS S3 bucket down to your local file system so it can be viewed in SimTelLab.
+
+<Note>
+  The **Installing and Configuring AWS CLI** and **Creating the Sync File** steps are only needed on the first pass. **Syncing the Data** is required each time new data is available.
+</Note>
+
+---
+
+## Prerequisites
+
+- AWS IAM User Account
+- Access Key
+- Secret Access Key
+
+<Note>
+  If you do not have these yet, request them through a system administrator. Contact Matt Smith at [matt.smith@smedleygroup.com](mailto:matt.smith@smedleygroup.com).
+</Note>
+
+---
+
+## Installing and Configuring AWS CLI
+
+<Steps>
+  <Step title="Install AWS CLI v2">
+    Visit the AWS CLI v2 download page and install it. You will now have the local folder structure created in `Program Files` and `C:/Users/XXXX`.
+  </Step>
+  <Step title="Navigate to the .aws folder">
+    Navigate to `C:/Users/XXXX/.aws`.
+
+    <Note>
+      If the `.aws` folder does not exist, download and extract the provided `.aws.zip` file and place the extracted contents into this location.
+    </Note>
+
+    ![.aws folder in file explorer](/images/od/rs/aws-folder.png)
+  </Step>
+  <Step title="Configure the config file">
+    Open the `config` file in Notepad++. It should be empty. Enter the following, replacing the profile name with whatever you wish (here `matt` is used):
+
+    ```ini
+    [profile matt]
+    region = eu-west-2
+    output = json
+    ```
+
+    Save and close the `config` file.
+  </Step>
+  <Step title="Configure the credentials file">
+    Open the `credentials` file in Notepad++. It should be empty. Enter the following, ensuring the profile name matches the one set in `config`, and replacing the placeholders with your access keys from the system administrator:
+
+    ```ini
+    [matt]
+    aws_access_key_id = <ACCESS KEY HERE>
+    aws_secret_access_key = <SECRET ACCESS KEY HERE>
+    ```
+
+    Save and close the `credentials` file.
+  </Step>
+</Steps>
+
+---
+
+## Creating the Sync File
+
+<Steps>
+  <Step title="Navigate to the SimTelLab data folder">
+    Navigate to your local file system where you are storing SimTelLab data.
+
+    <Note>
+      If this is your first time setting this up, download the pre-built folder structure and extract it into `C:/Demo`.
+    </Note>
+  </Step>
+  <Step title="Navigate to the database folder">
+    Navigate to `C:/Demo/SimTelLabDatabaseFKL`.
+  </Step>
+  <Step title="Create the sync file">
+    Create a new text file and rename it `sync.bat`. Ignore any warnings about the file extension making the file unusable.
+  </Step>
+  <Step title="Add the sync command">
+    Open `sync.bat` in Notepad++ and enter the following, replacing `<PROFILE>` with the profile name you set in the `.aws` files:
+
+    ```bat
+    aws s3 sync s3://telemetry-data-sg-prod/STL-database/2025 "C:\DatabasesSimTelLabDatabaseFKL\Data\2025" --profile <PROFILE>
+    ```
+
+    Save and close the `sync` file.
+  </Step>
+</Steps>
+
+---
+
+## Syncing the Data
+
+<Steps>
+  <Step title="Run the sync script">
+    Double-click `sync.bat` in File Explorer. The batch script will run and a command window will pop up.
+
+    ![Sync script running in command window](/images/od/rs/sync-running.png)
+  </Step>
+  <Step title="Monitor the download">
+    If new data is available, each file will be printed to the command line as it downloads.
+
+    ![Files downloading in command window](/images/od/rs/sync-downloading.png)
+  </Step>
+  <Step title="Wait for completion">
+    Once syncing has finished, the command window will close automatically.
+  </Step>
+</Steps>

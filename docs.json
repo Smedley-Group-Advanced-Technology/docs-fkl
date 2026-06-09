@@ -73,11 +73,11 @@
         ]
       },
       {
-        "tab": "OD",
+        "tab": "Operator Dashboard",
         "groups": [
           {
             "group": "CEL",
-            "icon": "flag-checkered",
+            "icon": "person-standing",
             "pages": [
               "od/cel/index",
               "od/cel/operational-dashboard",
@@ -97,6 +97,14 @@
               "od/ct/data-upload",
               "od/ct/stop-and-backup",
 			  "od/ct/monitor-ui"
+            ]
+          },
+		  {
+            "group": "Remote Support",
+            "icon": "headset",
+            "pages": [
+              "od/rs/index",
+              "od/ct/sync-s3"
             ]
           }
         ]

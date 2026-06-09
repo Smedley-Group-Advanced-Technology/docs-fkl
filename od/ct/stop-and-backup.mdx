@@ -36,6 +36,7 @@ At the end of each event day, the application must be stopped and the database b
     The script will display the current configuration — it uses the region last provided during setup. Take a moment to confirm it is correct before proceeding.
 
     You will then be prompted: **Do you want to complete the backup procedure?**
+	
   </Step>
   <Step title="Choose whether to back up">
     Enter `y` to proceed with the backup, or `n` to skip it and stop the application only.
@@ -52,21 +53,21 @@ At the end of each event day, the application must be stopped and the database b
   <Step title="Review and confirm the summary">
     You will be shown a summary of the options you have selected. Enter `y` to proceed, or `n` to exit without making any changes.
 
-    ![Stop script summary](/images/sops/charging-monitoring/stop-summary.png)
+    ![Stop script summary](/images/od/ct/stop-summary.png)
   </Step>
   <Step title="Wait for the backup to complete">
     The backup will run in three stages: InfluxDB, NATS, and Logs. Once all three are complete, the combined archive will be uploaded to S3.
 
-    ![Backup in progress](/images/sops/charging-monitoring/stop-backup-progress.png)
+    ![Backup in progress](/images/od/ct/stop-backup-progress.png)
 
-    ![Upload to S3](/images/sops/charging-monitoring/stop-s3-upload.png)
+    ![Upload to S3](/images/od/ct/stop-s3-upload.png)
 
     Leave the NUC running until this completes.
   </Step>
   <Step title="Application stops automatically">
     Once the backup and upload are complete, the application will stop automatically. If you selected a fresh InfluxDB and the upload was successful, InfluxDB will be cleared. A summary will be displayed at the bottom of the terminal.
 
-    ![Stop complete](/images/sops/charging-monitoring/stop-complete.png)
+    ![Stop complete](/images/od/ct/stop-complete.png)
   </Step>
 </Steps>
 
