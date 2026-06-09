@@ -85,11 +85,7 @@
             "pages": [
               "od/rs/index",
               "od/rs/sync-s3",
-              {
-                "group": "Battery Health Analysis",
-                "pages": [
-                  "od/rs/battery-health-index",
-                  "od/rs/battery-health-analysis"
+			  "od/rs/battery-health-analysis"
                 ]
               }
             ]
@@ -158,3 +154,4 @@
     "decoration": "gradient"
   }
 }
+
