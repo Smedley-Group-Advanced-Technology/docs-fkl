@@ -156,11 +156,5 @@
   },
   "background": {
     "decoration": "gradient"
-  },
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/introduction/welcome"
-    }
-  ]
+  }
 }
