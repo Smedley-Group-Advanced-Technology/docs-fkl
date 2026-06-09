@@ -43,18 +43,50 @@
         ]
       },
       {
-        "tab": "Hardware",
-        "groups": [
-          {
-            "group": "Karts",
-            "icon": "car",
-            "pages": [
-              "hardware/karts/index",
-			  "hardware/karts/kart-parameters"
-            ]
-          }
-        ]
-      },
+		  "tab": "Hardware",
+		  "groups": [
+			{
+			  "group": "Karts",
+			  "icon": "car",
+			  "pages": [
+				"hardware/karts/karts-index",
+				"hardware/karts/karts-specifications",
+				"hardware/karts/karts-parameters",
+				"hardware/karts/karts-torque-maps",
+				{
+				  "group": "Bambino 1.6 / EK1",
+				  "pages": [
+					"hardware/karts/torque-maps/ek1-pm1",
+					"hardware/karts/torque-maps/ek1-pm2",
+					"hardware/karts/torque-maps/ek1-pm3",
+					"hardware/karts/torque-maps/ek1-pm4",
+					"hardware/karts/torque-maps/ek1-pm5"
+				  ]
+				},
+				{
+				  "group": "Cadet 1.6 / EK2",
+				  "pages": [
+					"hardware/karts/torque-maps/ek2-pm1",
+					"hardware/karts/torque-maps/ek2-pm2",
+					"hardware/karts/torque-maps/ek2-pm3",
+					"hardware/karts/torque-maps/ek2-pm4",
+					"hardware/karts/torque-maps/ek2-pm5"
+				  ]
+				},
+				{
+				  "group": "Junior 1.6 / EK3",
+				  "pages": [
+					"hardware/karts/torque-maps/ek3-pm1",
+					"hardware/karts/torque-maps/ek3-pm2",
+					"hardware/karts/torque-maps/ek3-pm3",
+					"hardware/karts/torque-maps/ek3-pm4",
+					"hardware/karts/torque-maps/ek3-pm5"
+				  ]
+				}
+			  ]
+			}
+		  ]
+		},
 	  {
         "tab": "Operations",
         "groups": [
