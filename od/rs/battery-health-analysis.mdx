@@ -1,0 +1,146 @@
+---
+title: "Battery Health Analysis"
+description: "Generate battery health insights from charging data using SimTelLab Session Summaries, review in Excel, and publish the results."
+---
+
+## Overview
+
+This SOP describes how to use the Session Summaries functionality in SimTelLab to generate battery health insights from charging data, review the results in Excel, and publish the datasets for the wider team.
+
+---
+
+## Prerequisites
+
+Either of the following setups is required:
+
+- **Developer licence:** MATLAB 2023b, 2024a, or 2024b with SimTelLab v12.92 or later
+- **User licence:** Compiled SimTelLab v12.92 or later
+
+You will also need the latest telemetry datasets synced locally from the `telemetry-data-sg-prod` S3 bucket. If you are unsure how to do this, follow the [Synchronise Telemetry Data from AWS S3](/sops/remote-support/sync-telemetry-s3) SOP first.
+
+---
+
+## Generating the Insight Data
+
+<Steps>
+  <Step title="Launch SimTelLab">
+    Launch SimTelLab via MATLAB if you have a developer licence, or via the compiled executable if you have a user licence.
+
+    ![SimTelLab main window](/images/od/rs/simtellab-main.png)
+  </Step>
+  <Step title="Open Session Summaries">
+    Navigate to the **Summaries** tab on the navigation bar.
+
+    ![Summaries tab highlighted](/images/od/rs/summaries-tab.png)
+
+    From the drop-down, select **Session Summaries** to open the Session Summaries window.
+
+    ![Session Summaries window](/images/od/rs/session-summaries-window.png)
+  </Step>
+  <Step title="Select data">
+    Click **Select Data** to open the Browser window.
+
+    ![Browser window — initial view](/images/od/rs/browser-initial.png)
+  </Step>
+  <Step title="Navigate to the event">
+    From the Browser window, navigate to the event you wish to review.
+
+    ![Browser window — event list](/images/od/rs/browser-event-list.png)
+
+    <Note>
+      If the data is not visible, ensure the **Use saved DataTable for 2025** box under the **Browser Config** tab is not selected. If it is, untick it and click **Restart Browser**.
+
+      ![Browser Config — Use saved DataTable option](/images/od/rs/browser-config.png)
+    </Note>
+  </Step>
+  <Step title="Select the event and confirm">
+    Tick the box for the event you wish to review in the Browser window and click **OK**.
+
+    ![Browser window — event selected](/images/od/rs/browser-event-selected.png)
+
+    <Note>
+      If the selection was successful, the **Do Summary** button will become active.
+
+      ![Do Summary button active](/images/od/rs/do-summary-active.png)
+    </Note>
+  </Step>
+  <Step title="Run the summary">
+    Click **Do Summary** to run the analysis.
+
+    You will see printouts in the command window for each run completed. Once finished, the **Save Excel** and **Save JSON** buttons will become active.
+
+    ![Summary complete — save options active](/images/od/rs/summary-complete.png)
+  </Step>
+  <Step title="Save the data">
+    Save the results. It is recommended to use both options:
+
+    - **Save Summary In Excel** — for quick review of the data
+    - **Save Summary in JSON** — for quick reporting on the data
+  </Step>
+</Steps>
+
+---
+
+## Reviewing the Insight Data in Excel
+
+<Steps>
+  <Step title="Open the saved Excel file">
+    Open the Excel file saved in the previous section.
+
+    The sheet will contain a **Template** tab and an individual tab per kart.
+
+    ![Excel file — Template tab and kart tabs](/images/od/rs/excel-overview.png)
+
+    <Warning>
+      If prompted, enable Macros.
+    </Warning>
+  </Step>
+  <Step title="Apply formatting to all sheets">
+    On the **Template** tab, click **Copy Format to all Sheets**.
+
+    ![Copy Format to all Sheets button](/images/od/rs/excel-copy-format.png)
+
+    Upon completion you will see the message: *Formatting copied from 'Template' to all other sheets.*
+
+    ![Formatting copied confirmation message](/images/od/rs/excel-format-copied.png)
+  </Step>
+  <Step title="Review each kart tab">
+    Check each kart number tab to see the battery health status.
+
+    - **No issues** — no cells highlighted red
+
+    ![Kart tab with no issues](/images/od/rs/excel-kart-ok.png)
+
+    - **Issues present** — cells highlighted red
+
+    ![Kart tab with issues highlighted](/images/od/rs/excel-kart-issues.png)
+  </Step>
+  <Step title="Report issues">
+    During the event, any karts with problems should be communicated to the Pit Lane Manager.
+  </Step>
+</Steps>
+
+---
+
+## Publishing the Datasets
+
+<Note>
+  The Excel sheet and the JSON file should be uploaded to a common location on Sharepoint for the wider team to access.
+</Note>
+
+<Steps>
+  <Step title="Upload to Sharepoint">
+    Upload both the Excel sheet and the JSON file to Sharepoint at the following location:
+
+    ```
+    01 Projects\21 Total Karting Zero\02 Fleet Management
+    ```
+
+    [Open Sharepoint folder](https://robsmedley.sharepoint.com/sites/mainshare/_layouts/15/guestaccess.aspx?share=Eugt4jutvfhGuEM6xrr7PZUBgNfc5N1QmlGm9ZtYkmlhCQ&e=6A4kf1)
+  </Step>
+  <Step title="Post to Teams">
+    Send the Excel sheet into the relevant Teams channel for the event under **Event Remote Support**. Mention **@Matt Smith** when posting.
+
+    ![Teams post example](/images/od/rs/teams-post.png)
+  </Step>
+</Steps>

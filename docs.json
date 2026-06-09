@@ -29,6 +29,11 @@
         "tab": "SOPs",
         "groups": [
           {
+            "group": "Overview",
+            "icon": "house",
+            "pages": ["sops/index"]
+          },
+          {
             "group": "Race Prep",
             "icon": "wrench",
             "pages": [
@@ -104,7 +109,14 @@
             "icon": "headset",
             "pages": [
               "od/rs/index",
-              "od/ct/sync-s3"
+              "od/rs/sync-s3",
+			  {
+				  "group": "Battery Health Analysis",
+				  "pages": [
+					"sops/od/rs/battery-health-index",
+					"sops/od/rs/battery-health-analysis"
+				  ]
+				}
             ]
           }
         ]
