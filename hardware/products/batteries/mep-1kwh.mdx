@@ -1,0 +1,192 @@
+---
+title: "MEP — 1.0kWh Module"
+description: "Product specification for the MEP 1.0kWh battery module, including general spec, interface, and CAN bus schema."
+---
+
+## General Specification
+
+| Detail | Value |
+|--|--|
+| Nominal Voltage | 50.4 V |
+| Nominal Energy | 1000 Wh |
+| Continuous Current | 80 A |
+| Peak Current | 100 A |
+| Cell Arrangement | 14S 5P |
+| Dimensions | 359(L) × 159(W) × 103(H) mm |
+| Weight | 7.4 kg |
+
+---
+
+## Interface Specifications
+
+![Isometric view of MEP 1.0kWh battery module](/images/hardware/products/batteries/mep-1kwh-isometric.png)
+
+### COM Connector
+
+**Connector:** Amphenol AT04-6P-PM16
+
+![Front view of MEP 1.0kWh battery module](/images/hardware/products/batteries/mep-1kwh-front.png)
+
+| Pin | Function |
+|--|--|
+| 1 | CAN High |
+| 2 | CAN Low |
+| 3 | CAN GND |
+| 4 | Empty |
+
+### Power Connectors
+
+- Amphenol `SLPRABPSB` / `C10-730187-110`
+- Amphenol `SLPRABPSR` / `C10-730187-210`
+
+---
+
+## CAN Bus Specification
+
+### General Settings
+
+| Detail | Value |
+|--|--|
+| Bitrate | 500 kbps |
+| CAN ID Format | 11-bit hex |
+| Transmit Period | 100 ms |
+
+### Node ID to CAN ID Mapping
+
+Node 0 is detailed below. Additional nodes 1–4 replace the first two digits as follows:
+
+| Node ID | CAN ID Range |
+|--|--|
+| 0 | 0x100 – 0x10B |
+| 1 | 0x180 – 0x18B |
+| 2 | 0x200 – 0x20B |
+| 3 | 0x280 – 0x28B |
+| 4 | 0x300 – 0x30B |
+
+<Note>
+  Pin 5 = Battery Switch +VE, Pin 6 = Battery Switch -VE.
+</Note>
+
+### CAN Frame Definitions (Node 0)
+
+<AccordionGroup>
+  <Accordion title="0x100 — Total Voltage / Current / Remaining Capacity">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Total voltage | 10 mV | Unsigned (Big Endian) |
+    | 2–3 | Total current | 10 mA | Signed (Big Endian), charge +, discharge − |
+    | 4–5 | Remaining capacity | 10 mAh | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x101 — Full Charge Capacity / Cycle Times / SOC">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Full capacity | 10 mAh | Unsigned (Big Endian) |
+    | 2–3 | No. of cycles | 1 | Unsigned (Big Endian) |
+    | 4–5 | Remaining SOC | % | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x102 — Equalisation State / Protection Status">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Cells 1–16 balance status | Bit | 1 = open, 0 = closed |
+    | 2–3 | Cells 17–32 balance status | Bit | 1 = open, 0 = closed |
+    | 4–5 | Protection sign | Bit | 1 = protected, 0 = unprotected |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x103 — FET Control Status / Production Date / Software Version">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | FET status | Bit | Bit 0 = charging FET, Bit 1 = discharging FET. 0 = off, 1 = on |
+    | 2–3 | Production date | — | 2 bytes. Date = lowest 5 bits, month = next 4 bits, year = 2000 + remaining bits |
+    | 4–5 | Software version | — | Signed (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x104 — Number of Battery Strings / NTC Count">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0 | Number of battery strings | 1 | Unsigned (Big Endian) |
+    | 1 | Number of NTC probes | 1 | Unsigned (Big Endian) |
+    | 2–3 | CRC | — | Byte 0–1: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x105 — NTC 1–3 Temperatures">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Temperature NTC 1 | 0.1 K | Unsigned (Big Endian) |
+    | 2–3 | Temperature NTC 2 | 0.1 K | Unsigned (Big Endian) |
+    | 4–5 | Temperature NTC 3 | 0.1 K | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x106 — NTC 4–6 Temperatures">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Temperature NTC 4 | 0.1 K | Unsigned (Big Endian) |
+    | 2–3 | Temperature NTC 5 | 0.1 K | Unsigned (Big Endian) |
+    | 4–5 | Temperature NTC 6 | 0.1 K | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x107 — Cell Voltages 1–3">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Voltage Cell 1 | mV | Unsigned (Big Endian) |
+    | 2–3 | Voltage Cell 2 | mV | Unsigned (Big Endian) |
+    | 4–5 | Voltage Cell 3 | mV | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x108 — Cell Voltages 4–6">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Voltage Cell 4 | mV | Unsigned (Big Endian) |
+    | 2–3 | Voltage Cell 5 | mV | Unsigned (Big Endian) |
+    | 4–5 | Voltage Cell 6 | mV | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x109 — Cell Voltages 7–9">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Voltage Cell 7 | mV | Unsigned (Big Endian) |
+    | 2–3 | Voltage Cell 8 | mV | Unsigned (Big Endian) |
+    | 4–5 | Voltage Cell 9 | mV | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x10A — Cell Voltages 10–12">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Voltage Cell 10 | mV | Unsigned (Big Endian) |
+    | 2–3 | Voltage Cell 11 | mV | Unsigned (Big Endian) |
+    | 4–5 | Voltage Cell 12 | mV | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+
+  <Accordion title="0x10B — Cell Voltages 13–15">
+    | Bytes | Content | Unit | Notes |
+    |--|--|--|--|
+    | 0–1 | Voltage Cell 13 | mV | Unsigned (Big Endian) |
+    | 2–3 | Voltage Cell 14 | mV | Unsigned (Big Endian) |
+    | 4–5 | Voltage Cell 15 | mV | Unsigned (Big Endian) |
+    | 6–7 | CRC | — | Byte 0–5: CRC-16 calibration |
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## DBC Files
+
+| Version | Notes |
+|--|--|
+| V5 | Fixes production date, FET status, and overall byte ordering from V2 |
+| Combined V5 (16/10/23) | Combined with Sevcon logging. Known issue with VCell1–3, otherwise functional |
+
+<Note>
+  Add links to DBC files here once they are uploaded to the repository.
+</Note>

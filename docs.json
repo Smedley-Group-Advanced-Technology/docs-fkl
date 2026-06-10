@@ -89,6 +89,24 @@
 				  ]
 				}
 			  ]
+			},
+			{
+			  "group": "Products",
+			  "icon": "package",
+			  "pages": [
+				"hardware/products/hardware-products-index",
+				{
+				  "group": "Batteries",
+				  "pages": [
+					"hardware/products/batteries/hardware-batteries-index",
+					"hardware/products/batteries/mep-1kwh"
+				  ]
+				},
+				{ "group": "Motors", "pages": ["hardware/products/motors/index"] },
+				{ "group": "Controllers", "pages": ["hardware/products/controllers/index"] },
+				{ "group": "Contactors", "pages": ["hardware/products/contactors/index"] },
+				{ "group": "Loggers", "pages": ["hardware/products/loggers/index"] }
+			  ]
 			}
 		  ]
 		},
