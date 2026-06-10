@@ -111,52 +111,72 @@
 		  ]
 		},
 	  {
-        "tab": "Operations",
-        "groups": [
-          {
-            "group": "Roles & Responsibilities",
-            "icon": "users",
-            "pages": [
-              "operations/roles/index",
-              "operations/roles/charging-technician",
-              "operations/roles/remote-support",
-              "operations/roles/customer-experience-lead"
-            ]
-          },
-          {
-            "group": "Customer Experience",
-            "icon": "person-standing",
-            "pages": [
-              "od/cel/index",
-              "od/cel/operational-dashboard",
-              "od/cel/alpha-timing",
-              "od/cel/driver-sign-on",
-              "od/cel/driver-training-program"
-            ]
-          },
-          {
-            "group": "Charging Tech",
-            "icon": "battery-full",
-            "pages": [
-              "od/ct/index",
-              "od/ct/setup",
-              "od/ct/start",
-              "od/ct/data-upload",
-              "od/ct/stop-and-backup",
-              "od/ct/monitor-ui"
-            ]
-          },
-          {
-            "group": "Remote Support",
-            "icon": "headset",
-            "pages": [
-              "od/rs/index",
-              "od/rs/sync-s3",
-              "od/rs/battery-health-analysis"
-            ]
-          }
-        ]
-      },
+		  "tab": "Operations",
+		  "groups": [
+			{
+			  "group": "Roles & Responsibilities",
+			  "icon": "users",
+			  "pages": [
+				"operations/roles/index",
+				"operations/roles/charging-technician",
+				"operations/roles/remote-support",
+				"operations/roles/customer-experience-lead"
+			  ]
+			},
+			{
+			  "group": "Customer Experience",
+			  "icon": "person-standing",
+			  "pages": [
+				"operations/customer-experience/index",
+				"operations/customer-experience/operational-dashboard",
+				"operations/customer-experience/alpha-timing",
+				"operations/customer-experience/driver-sign-on",
+				"operations/customer-experience/driver-training-program"
+			  ]
+			},
+			{
+			  "group": "Charging Tech",
+			  "icon": "battery-full",
+			  "pages": [
+				"operations/charging-tech/index",
+				"operations/charging-tech/setup",
+				"operations/charging-tech/start",
+				"operations/charging-tech/data-upload",
+				"operations/charging-tech/stop-and-backup",
+				"operations/charging-tech/monitor-ui"
+			  ]
+			},
+			{
+			  "group": "Remote Support",
+			  "icon": "headset",
+			  "pages": [
+				"operations/remote-support/index",
+				"operations/remote-support/sync-s3",
+				{
+				  "group": "Battery Health Analysis",
+				  "pages": [
+					"operations/remote-support/battery-health/index",
+					"operations/remote-support/battery-health/battery-health-analysis"
+				  ]
+				}
+			  ]
+			},
+			{
+			  "group": "Kart Technician",
+			  "icon": "wrench",
+			  "pages": [
+				"operations/kart-technician/index",
+				{
+				  "group": "Post-Event Level 1",
+				  "pages": [
+					"operations/kart-technician/ek1-post-event-level1",
+					"operations/kart-technician/ek2-ek3-post-event-level1"
+				  ]
+				}
+			  ]
+			}
+		  ]
+		},
       {
         "tab": "Software & Technology",
         "groups": [
@@ -164,7 +184,13 @@
             "group": "Internal Tools",
             "icon": "wrench",
             "pages": [
-              "software/internal/index"
+              "software/internal/index",
+			  {
+                "group": "Operator Dashboard",
+                "pages": [
+                  "operations/customer-experience/operational-dashboard"
+                ]
+              }
             ]
           },
           {

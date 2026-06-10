@@ -1,6 +1,7 @@
 ---
-title: "MEP — 1.0kWh Module"
-description: "Product specification for the MEP 1.0kWh battery module, including general spec, interface, and CAN bus schema."
+title: "MEP - 1.0 kWh Module"
+sidebarTitle: "MEP 1.0 kWh"
+description: "Product specification for the MEP 1.0 kWh battery module, including general spec, interface, and CAN bus schema."
 ---
 
 ## General Specification
@@ -23,6 +24,10 @@ description: "Product specification for the MEP 1.0kWh battery module, including
 
 ### COM Connector
 
+<Card title="Amphenol AT04-6P-PM16.dbc" icon="download" href="/files/hardware/products/batteries/AT04-6P-PM16.pdf">
+  Amphenol connector used for communications.
+</Card>
+
 **Connector:** Amphenol AT04-6P-PM16
 
 ![Front view of MEP 1.0kWh battery module](/images/hardware/products/batteries/mep-1kwh-front.png)
@@ -33,6 +38,8 @@ description: "Product specification for the MEP 1.0kWh battery module, including
 | 2 | CAN Low |
 | 3 | CAN GND |
 | 4 | Empty |
+| 5 | Battery Switch +VE |
+| 6 | Battery Switch -VE |
 
 ### Power Connectors
 
@@ -62,10 +69,6 @@ Node 0 is detailed below. Additional nodes 1–4 replace the first two digits as
 | 2 | 0x200 – 0x20B |
 | 3 | 0x280 – 0x28B |
 | 4 | 0x300 – 0x30B |
-
-<Note>
-  Pin 5 = Battery Switch +VE, Pin 6 = Battery Switch -VE.
-</Note>
 
 ### CAN Frame Definitions (Node 0)
 
