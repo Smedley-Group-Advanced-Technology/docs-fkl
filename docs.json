@@ -77,7 +77,7 @@
 					  ]
 					},
 					{
-					  "group": "Junior 1.6 / EK3",
+					  "group": "EK3",
 					  "pages": [
 						"hardware/karts/torque-maps/ek3-pm1",
 						"hardware/karts/torque-maps/ek3-pm2",
@@ -166,7 +166,7 @@
 			  {
                 "group": "Alpha Timing",
                 "pages": [
-                  "software/third-party/vivenu-updating-numbers"
+                  "software/third-party/alpha-timing"
                 ]
               }
             ]

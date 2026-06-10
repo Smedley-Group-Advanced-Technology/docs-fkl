@@ -5,30 +5,26 @@ export const TorqueChart = ({ data, mapId }) => {
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
-  const maxRpm = Math.max(...data.map(d => d.rpm));
-  const maxTorque = Math.max(...data.map(d => d.torque));
-  const minTorque = 0;
-  const torqueRange = maxTorque * 1.2;
+  const xMin = 0;
+  const xMax = 5000;
+  const yMin = 0;
+  const yMax = 70;
 
-  const xScale = rpm => (rpm / maxRpm) * innerWidth;
-  const yScale = torque => innerHeight - ((torque - minTorque) / torqueRange) * innerHeight;
+  const xScale = rpm => ((rpm - xMin) / (xMax - xMin)) * innerWidth;
+  const yScale = torque => innerHeight - ((torque - yMin) / (yMax - yMin)) * innerHeight;
 
-  // Build smooth polyline points
   const points = data.map(d => `${xScale(d.rpm)},${yScale(d.torque)}`).join(" ");
 
-  // X axis ticks
+  // X axis ticks: 0 to 5000 in 500 increments
   const xTicks = [];
-  const xStep = maxRpm / 10;
-  for (let i = 0; i <= 10; i++) {
-    xTicks.push(i * xStep);
+  for (let i = xMin; i <= xMax; i += 500) {
+    xTicks.push(i);
   }
 
-  // Y axis ticks
+  // Y axis ticks: 0 to 70 in 10 increments
   const yTicks = [];
-  const yStep = (torqueRange) / 6;
-  for (let i = 0; i <= 6; i++) {
-    const val = i * yStep;
-    yTicks.push(Math.round(val * 10) / 10);
+  for (let i = yMin; i <= yMax; i += 10) {
+    yTicks.push(i);
   }
 
   const [hovered, setHovered] = useState(null);
