@@ -26,12 +26,6 @@
     ],
     "display": "toc"
   },
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/introduction/welcome"
-    }
-  ],
   "navigation": {
     "tabs": [
       {
