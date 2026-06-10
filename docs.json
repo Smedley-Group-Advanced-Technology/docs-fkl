@@ -124,59 +124,55 @@
 			  "icon": "users",
 			  "pages": [
 				"operations/roles/index",
-				"operations/roles/charging-technician",
-				"operations/roles/remote-support",
-				"operations/roles/customer-experience-lead"
-			  ]
-			},
-			{
-			  "group": "Customer Experience",
-			  "icon": "person-standing",
-			  "pages": [
-				"operations/customer-experience/index",
-				"operations/customer-experience/operational-dashboard",
-				"operations/customer-experience/alpha-timing",
-				"operations/customer-experience/driver-sign-on",
-				"operations/customer-experience/driver-training-program"
-			  ]
-			},
-			{
-			  "group": "Charging Tech",
-			  "icon": "battery-full",
-			  "pages": [
-				"operations/charging-tech/index",
-				"operations/charging-tech/setup",
-				"operations/charging-tech/start",
-				"operations/charging-tech/data-upload",
-				"operations/charging-tech/stop-and-backup",
-				"operations/charging-tech/monitor-ui"
-			  ]
-			},
-			{
-			  "group": "Remote Support",
-			  "icon": "headset",
-			  "pages": [
-				"operations/remote-support/index",
-				"operations/remote-support/sync-s3",
 				{
-				  "group": "Battery Health Analysis",
+				  "group": "Charging Technician",
 				  "pages": [
-					"operations/remote-support/battery-health/index",
-					"operations/remote-support/battery-health/battery-health-analysis"
+					"operations/roles/charging-technician",
+					"operations/charging-tech/index",
+					"operations/charging-tech/setup",
+					"operations/charging-tech/start",
+					"operations/charging-tech/data-upload",
+					"operations/charging-tech/stop-and-backup",
+					"operations/charging-tech/monitor-ui"
 				  ]
-				}
-			  ]
-			},
-			{
-			  "group": "Kart Technician",
-			  "icon": "wrench",
-			  "pages": [
-				"operations/kart-technician/index",
+				},
 				{
-				  "group": "Level 1 Service",
+				  "group": "Remote Support",
 				  "pages": [
-					"operations/kart-tech/ek1-post-event-level1",
-					"operations/kart-tech/ek2-ek3-post-event-level1"
+					"operations/roles/remote-support",
+					"operations/remote-support/index",
+					"operations/remote-support/sync-s3",
+					{
+					  "group": "Battery Health Analysis",
+					  "pages": [
+						"operations/remote-support/battery-health/index",
+						"operations/remote-support/battery-health/battery-health-analysis"
+					  ]
+					}
+				  ]
+				},
+				{
+				  "group": "Customer Experience",
+				  "pages": [
+					"operations/roles/customer-experience-lead",
+					"operations/customer-experience/index",
+					"operations/customer-experience/operational-dashboard",
+					"operations/customer-experience/alpha-timing",
+					"operations/customer-experience/driver-sign-on",
+					"operations/customer-experience/driver-training-program"
+				  ]
+				},
+				{
+				  "group": "Kart Technician",
+				  "pages": [
+					"operations/kart-technician/index",
+					{
+					  "group": "Level 1 Service",
+					  "pages": [
+						"operations/kart-tech/ek1-post-event-level1",
+						"operations/kart-tech/ek2-ek3-post-event-level1"
+					  ]
+					}
 				  ]
 				}
 			  ]
