@@ -29,19 +29,31 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Introduction",
-        "groups": [
-          {
-            "group": "Welcome",
-            "icon": "hand",
-            "pages": [
-              "introduction/welcome",
-              "introduction/the-team",
-              "introduction/new-to-fkl"
-            ]
-          }
-        ]
-      },
+		  "tab": "Introduction",
+		  "groups": [
+			{
+			  "group": "Welcome",
+			  "icon": "hand",
+			  "pages": [
+				"introduction/welcome",
+				"introduction/the-team",
+				"introduction/new-to-fkl"
+			  ]
+			},
+			{
+			  "group": "Hub Pricing",
+			  "icon": "circle-pound-sterling",
+			  "pages": [
+				"introduction/hub-pricing/index",
+				"introduction/hub-pricing/hub-1",
+				"introduction/hub-pricing/hub-2",
+				"introduction/hub-pricing/hub-3",
+				"introduction/hub-pricing/hub-3a",
+				"introduction/hub-pricing/hub-4"
+			  ]
+			}
+		  ]
+		},
       {
 		  "tab": "Hardware",
 		  "groups": [
