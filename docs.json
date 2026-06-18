@@ -274,8 +274,8 @@
 					{
 					  "group": "Infrastructure",
 					  "pages": [
-						"software/developer/estate/infrastructure/talentidpipeline-infra-cdk",
-						"software/developer/estate/infrastructure/sg-infra"
+						"software/developer/estate/infra/talentidpipeline-infra-cdk",
+						"software/developer/estate/infra/sg-infra"
 					  ]
 					}
 				  ]
