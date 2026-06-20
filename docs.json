@@ -279,7 +279,13 @@
 					  ]
 					}
 				  ]
-				}
+				},
+				{
+					"group": "TalentID:Global",
+					"pages": [
+					"software/developer/talentid/global/index"
+					]
+				}					
 			  ]
 			}
         ]
