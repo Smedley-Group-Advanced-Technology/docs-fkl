@@ -1,0 +1,173 @@
+---
+title: "Vivenu Naming Convention"
+sidebarTitle: "Naming Convention"
+description: "A stable, consistent schema for naming events, ticket categories, ticket types, and derived accounting dimensions across every FKL hub."
+---
+
+Consistent names are what let the pipeline parse a ticket into its entity, category, region, series, session, and project without manual intervention. The conventions below are a **build dependency**, not housekeeping.
+
+## Background
+
+The FKL hubs use Vivenu as their ticketing platform. Historically, naming of events, categories, and types was inconsistent — the root cause of much of the parsing effort in the pipeline. This schema is applied across all hubs, events, and tickets and is designed to cover current and foreseeable edge cases.
+
+<Note>
+A few elements are provisional and may change as the Vivenu setup is optimised:
+
+- **Season passes are presently modelled as events.** The intended direction is to use Vivenu bundles, with a parent–child relationship between a season ticket and its individual tickets.
+- **Ticket categories and ticket types are kept aligned** (see [Ticket Types](#4-ticket-types)). Whether this can be simplified is open.
+- **Metadata and API-driven creation** are forward items: driving event and ticket creation through the API, with fixed selectable values rather than free text, would cut both effort and error.
+</Note>
+
+---
+
+## 1. Event Names
+
+**Format:** `[Category] [Region] [Series] [Round] - [Day], [Date Month]`
+
+| Example |
+|---------|
+| `Pro Championship Round 1 - Saturday, 5th April` |
+| `Regional Championship Round 3 - Sunday, 10th May` |
+| `Pro SoCal Spring Cup Round 1 - Saturday, 5th April` |
+| `Community Day - Sunday, 10th November` |
+| `Testing 1 - Saturday, 11th February` |
+
+**Double-header edge case:** Where two rounds run on the same day, both rounds appear in the event name and the format is otherwise unchanged.
+
+> *Pro Championship Round 5 & 6 - Saturday, 29th August*
+
+---
+
+## 2. Ticket Category Names
+
+**Single-event format:** `[Day] [AgeGroup] [WeightClass] [Timeslot] [Session]`
+
+| Example |
+|---------|
+| `Saturday Bambino AM Practise` |
+| `Sunday Junior Heavy PM Race` |
+| `Saturday Bambino AM Testing` |
+
+**Season-pass format:** `[Day] [AgeGroup] [WeightClass] [Session] Pass`
+
+| Example |
+|---------|
+| `Saturday Bambino Race Season Pass` |
+| `Sunday Junior Light Race Season Pass` |
+| `Sunday Junior Heavy Combined Season Pass` |
+
+<Note>
+A future *Combined Pass* category may be introduced. The structure above is left unchanged until then.
+</Note>
+
+---
+
+## 3. Season-Pass Event Names
+
+While season passes remain modelled as events, they follow:
+
+**Format:** `[Category] [Region] [Series] [Year] [Session] Season Pass`
+
+| Example |
+|---------|
+| `Regional 2026 Practise Season Pass` |
+| `Pro NorCal 2026 Race Season Pass` |
+| `Regional SoCal Spring Cup 2026 Race Season Pass` |
+| `Regional North 2026 Race Season Pass` |
+| `Pro South 2026 Practise Season Pass` |
+
+---
+
+## 4. Ticket Types
+
+A ticket's **type aligns exactly with its category** (see [Ticket Category Names](#2-ticket-category-names)). They are kept in lockstep so the type carries no information the category does not.
+
+---
+
+## 5. Alpha Hub-ID Prefix
+
+**Format:** `[[Hub-ID]] [Category] [Region] [Series] [Round]`
+
+The Hub-ID sits in square brackets at the start of the name.
+
+| Example |
+|---------|
+| `[US-MW] Regional Championship Round 3` |
+
+---
+
+## 6. Intacct Items
+
+**Format:** `[AgeGroup][Session]`
+
+The item dimension is deliberately coarse — the pipeline log holds the full breakdown, so Intacct only needs higher-level granularity. Age group crossed with session type gives **twelve** items:
+
+|  | Testing | Practise | Race | Combined |
+|--|---------|----------|------|----------|
+| **Bambino** | Bambino Testing | Bambino Practise | Bambino Race | Bambino Combined |
+| **Cadet** | Cadet Testing | Cadet Practise | Cadet Race | Cadet Combined |
+| **Junior** | Junior Testing | Junior Practise | Junior Race | Junior Combined |
+
+<Note>
+Historical "Driver Training" categories map to the **Testing** items.
+</Note>
+
+---
+
+## 7. Intacct Project Codes
+
+**Format:** `[Entity]-[Region]-[Category]-[YY]-[DDMM]`
+
+`DDMM` is the day and month of the event. For a multi-day weekend it is always the **Saturday** date. Date-based codes are stable — if rounds are combined or renumbered, the code does not change.
+
+| Example | Description |
+|---------|-------------|
+| `UKFK-PRO-26-0504` | Pro event, 5th April |
+| `USIN-FL-PRO-26-0809` | Pro event in Florida run by USIN, 8th September |
+| `UKFK-TEST-26-2103` | Testing, 21st March |
+| `UKFK-COM-26-2709` | Community Day, 27th September |
+| `USCA-PRO-26-1005` | USCA Pro, 5th October |
+
+**Double-header weekends** use **one** project code (Saturday and Sunday together), e.g. `UKFK-PRO-26-0405`.
+
+**Mixed weekends** — where Pro and Regional run on the same weekend — each series takes its **own** code so series profitability can be isolated. Finance performs the cost split at month end.
+
+| Scenario | Codes |
+|----------|-------|
+| Pro Round 6 + Pro Round 7 (same series) | One code |
+| Pro Round 6 + Regional Round 7 (different series) | Two codes |
+
+---
+
+## 8. Calendar Session IDs
+
+**Format:** `[Entity]-[Cat][Region][Round]-[Day]-[Slot]-[Year]`
+
+| Example | Description |
+|---------|-------------|
+| `UKFK-PRO1-SAT-AM-2026` | UK Pro Round 1, Saturday AM |
+| `USCA-PRO-SCL1-SAT-PM-2026` | USCA Pro SoCal Round 1, Saturday PM |
+
+---
+
+## 9. Calendar Season IDs
+
+**Format:** `[Entity]-[Cat]-[Day]-[Sess]-[Year]`
+
+| Example | Description |
+|---------|-------------|
+| `UKFK-PRO-SAT-RAC-2026` | Saturday Race season, full year |
+| `USCA-PRO-SCL-SAT-RAC-SPR-2026` | With region and series |
+
+---
+
+## 10. Pipeline Log References
+
+**Format:** `AUTO-[type]-[identifier]`
+
+| Example | Description |
+|---------|-------------|
+| `AUTO-TXN-<transaction_id>` | Sale journal |
+| `AUTO-PAYOUT-UKFK-po_xxx` | Payout clearing |
+| `AUTO-REFUND-STRIPE-re_xxx` | Stripe refund |
+| `AUTO-PPRECEIPT-ch_xxx` | Payment plan instalment |
