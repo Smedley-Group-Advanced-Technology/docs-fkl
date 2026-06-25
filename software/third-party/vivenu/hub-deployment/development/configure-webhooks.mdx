@@ -14,11 +14,11 @@ Vivenu uses webhooks to notify the GKL Platform of events on a seller. The devel
 
 - Vivenu access for the relevant seller, with **Webhooks** installed under Developer Tools. See [Adding Developer Tools](/software/third-party/vivenu/general/vivenu-developer-tools).
 - The hub code confirmed (e.g. `de` for Germany, `us-ca` for US California). See the [naming convention](/software/third-party/vivenu/general/vivenu-naming-convention).
-- The HMAC key for this hub generated and recorded in the database configuration (covered in a separate SOP).
+- The HMAC key for this hub, generated in the [New Hub Region SOP](/software/third-party/vivenu/hub-deployment/development/configure-new-hub-region).
 
 ---
 
-## Naming convention
+## Naming Convention
 
 Name each webhook using the format:
 
@@ -42,7 +42,7 @@ Note the controller segment in the URL is **plural** (`Events`, `Tickets`, `Tran
 
 ---
 
-## Creating each webhook
+## Creating Each Webhook
 
 Repeat the following for all four webhooks.
 
@@ -56,10 +56,10 @@ Repeat the following for all four webhooks.
     Enter the **Name** and **URL** for this webhook using the conventions above, taking the controller segment and events from the [webhook reference](#webhook-reference) table.
   </Step>
   <Step title="Set the HMAC key">
-    Take the HMAC key recorded in the database configuration for this hub, **base64 encode** it, and paste the encoded value into the **HMAC Key** field.
+    Take the HMAC key generated for this hub in the [New Hub Region SOP](/software/third-party/vivenu/hub-deployment/development/configure-new-hub-region), **base64 encode** it, and paste the encoded value into the **HMAC Key** field.
 
     <Warning>
-      Do not use the **Generate HMAC Key** button in Vivenu. The key must match the value stored in the database configuration so the receiving API can validate incoming webhooks.
+      Do not use the **Generate HMAC Key** button in Vivenu. The key must match the value stored in the GKL API configuration so the receiving API can validate incoming webhooks.
     </Warning>
   </Step>
   <Step title="Select the events">
@@ -72,7 +72,7 @@ Repeat the following for all four webhooks.
 
 ---
 
-## Webhook reference
+## Webhook Reference
 
 | Webhook name | URL controller segment | Events |
 |--|--|--|
@@ -100,7 +100,7 @@ The selected events for each webhook should match the screenshots below.
 
 ---
 
-## Confirming the webhooks
+## Confirming the Webhooks
 
 Once all four are saved, the **Webhooks** list should show each one as active.
 

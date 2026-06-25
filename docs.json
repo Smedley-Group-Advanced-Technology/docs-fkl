@@ -247,8 +247,7 @@
 							"software/third-party/vivenu/hub-deployment/development/configure-new-hub-region",
 							"software/third-party/vivenu/hub-deployment/development/configure-webhooks",
 							"software/third-party/vivenu/hub-deployment/development/configure-talentid-integration",
-							"software/third-party/vivenu/hub-deployment/development/configure-telemetry-regions",
-							"software/third-party/vivenu/hub-deployment/development/test-setup"
+							"software/third-party/vivenu/hub-deployment/development/configure-telemetry-regions"
 						  ]
 						},
 						"software/third-party/vivenu/hub-deployment/vivenu-configure-new-seller",
