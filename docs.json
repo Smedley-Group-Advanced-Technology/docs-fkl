@@ -235,6 +235,12 @@
 					  "group": "Hub Deployment",
 					  "pages": [
 						"software/third-party/vivenu/hub-deployment/vivenu-setting-up-a-new-hub",
+						{
+						  "group": "Development Team",
+						  "pages": [
+							"software/third-party/vivenu/hub-deployment/development/configure-seller-domain"
+						  ]
+						},
 						"software/third-party/vivenu/hub-deployment/vivenu-configure-new-seller",
 						"software/third-party/vivenu/hub-deployment/vivenu-setting-up-a-payment-gateway",
 						"software/third-party/vivenu/hub-deployment/vivenu-creating-new-event"
